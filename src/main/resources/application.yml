@@ -1,0 +1,31 @@
+# active on which profile
+spring:
+  profiles:
+    active: https
+
+debug: true
+trace: false
+
+#security:
+#  enable-csrf: false
+---
+# using http profile
+spring:
+  profiles: http
+server:
+  port: 8080
+
+---
+# using https profile
+spring:
+  profiles: https
+server:
+  ssl:
+    key-store-type: PKCS12 # The format used for the keystore. It could be set to JKS in case it is a JKS file
+    key-store: classpath:keystore/[YOUR CA or JKS KEY]testkey.p12 # The path to the keystore containing the certificate
+    # Also, Store .p12 on project/src/main/resources/keystore..
+    key-store-password: [The password used to generate the certificate] # The password used to generate the certificate
+    key-password: [The password used to generate the certificate] # The password used to generate the certificate
+    key-alias: testkey  # The alias mapped to the certificate
+    enabled: true
+  port: 8443

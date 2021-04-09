@@ -1,0 +1,3 @@
+
+# generate ssl key
+keytool -genkeypair -alias testkey -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore testkey.p12 -validity 3650

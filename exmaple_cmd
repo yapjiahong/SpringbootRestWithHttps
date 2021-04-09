@@ -1,0 +1,6 @@
+
+# get cookie
+curl -k -H "content-type: application/json"  -X POST https://localhost:8443/welcome --data '{"key":"key", "msg":"tested"}' -c cookie
+
+# Curl with post + cookie + xsrf token
+curl -k -H "content-type: application/json" --cookie cookie -H "X-XSRF-TOKEN: aa7e7190-566d-4b33-8270-3c774469b0e8"  -X POST https://localhost:8443/welcome --data '{"key":"key", "msg":"tested"}' -c cookie
